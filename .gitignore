@@ -1,40 +1,55 @@
-# Secrets and local configuration
+# =============================================================================
+# SECRETS AND LOCAL CONFIGURATION (NEVER COMMIT)
+# =============================================================================
 panel_config.json
 panel_config.local.json
 .env
 .env.local
 .env*.local
 
-# Server runtime data and world
+# =============================================================================
+# SERVER RUNTIME DATA AND WORLD (NOT PART OF REPO)
+# =============================================================================
+# Dynamic data created when server runs
 servidor_rpg/world/
 servidor_rpg/server.log
 servidor_rpg/logs/
 servidor_rpg/cache/
 servidor_rpg/crash-reports/
+servidor_rpg/dynamic-data-pack-cache/
 
-# User data files
+# User data (generated at runtime)
 servidor_rpg/usercache.json
 servidor_rpg/usernamecache.json
 servidor_rpg/banned-players.json
 servidor_rpg/banned-ips.json
 servidor_rpg/ops.json
 servidor_rpg/whitelist.json
-
-# Server configuration that changes at runtime
 servidor_rpg/eula.txt
 
-# Backup server
-servidor_create/world/
-servidor_create/server.log
-servidor_create/logs/
+# Backup server (keep structure only, exclude runtime data)
+servidor_create/
 
-# Mods and libraries (too large for repo)
+# =============================================================================
+# LARGE ASSETS (NOT PART OF REPO - ADD SEPARATELY IF NEEDED)
+# =============================================================================
+# Mods and mod libraries
 servidor_rpg/mods/
 servidor_rpg/mods_backup/
+
+# Java runtime and dependencies
 servidor_rpg/libraries/
 servidor_rpg/versions/
 
-# IDE and system files
+# Installers (download fresh when setting up)
+*-installer*.jar
+fabric-installer*.jar
+neoforge*.jar
+*.log
+
+# =============================================================================
+# IDE AND SYSTEM FILES
+# =============================================================================
 .vscode/
 .idea/
 *.swp
@@ -42,13 +57,21 @@ servidor_rpg/versions/
 *~
 .DS_Store
 Thumbs.db
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.egg-info/
 .pytest_cache/
+*.egg
 
-# Temporary files
+# =============================================================================
+# TEMPORARY AND BUILD FILES
+# =============================================================================
 *.tmp
 *.bak
 *.lock
+*.backup
+dist/
+build/
