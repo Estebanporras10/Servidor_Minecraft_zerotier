@@ -1,0 +1,54 @@
+# Secrets and local configuration
+panel_config.json
+panel_config.local.json
+.env
+.env.local
+.env*.local
+
+# Server runtime data and world
+servidor_rpg/world/
+servidor_rpg/server.log
+servidor_rpg/logs/
+servidor_rpg/cache/
+servidor_rpg/crash-reports/
+
+# User data files
+servidor_rpg/usercache.json
+servidor_rpg/usernamecache.json
+servidor_rpg/banned-players.json
+servidor_rpg/banned-ips.json
+servidor_rpg/ops.json
+servidor_rpg/whitelist.json
+
+# Server configuration that changes at runtime
+servidor_rpg/eula.txt
+
+# Backup server
+servidor_create/world/
+servidor_create/server.log
+servidor_create/logs/
+
+# Mods and libraries (too large for repo)
+servidor_rpg/mods/
+servidor_rpg/mods_backup/
+servidor_rpg/libraries/
+servidor_rpg/versions/
+
+# IDE and system files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.bak
+*.lock

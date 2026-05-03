@@ -1,0 +1,14 @@
+{
+  "server_dir": "D:\\warp_server\\minecraft_server\\servidor_rpg",
+  "minecraft_version": "1.20.1",
+  "fabric_loader_version": "0.19.2",
+  "java_command": "java",
+  "min_memory": "2G",
+  "max_memory": "4G",
+  "network_name": "YOUR_NETWORK_NAME",
+  "network_id": "YOUR_NETWORK_ID",
+  "port": 25565,
+  "rcon_host": "127.0.0.1",
+  "rcon_port": 25575,
+  "rcon_password": "CHANGE_ME_STRONG_PASSWORD"
+}
