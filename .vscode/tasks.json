@@ -1,0 +1,305 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "list-java-processes",
+			"type": "shell",
+			"command": "tasklist",
+			"args": [
+				"/FI",
+				"IMAGENAME eq java.exe",
+				"/FO",
+				"TABLE"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "kill-java-processes",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/PID",
+				"13640",
+				"/PID",
+				"15572",
+				"/PID",
+				"26216",
+				"/PID",
+				"10536"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "verify-no-java",
+			"type": "shell",
+			"command": "tasklist",
+			"args": [
+				"/FI",
+				"IMAGENAME eq java.exe",
+				"/FO",
+				"TABLE"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "kill-remaining-java",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/PID",
+				"24072"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "verify-no-java-2",
+			"type": "shell",
+			"command": "tasklist",
+			"args": [
+				"/FI",
+				"IMAGENAME eq java.exe",
+				"/FO",
+				"TABLE"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "inspect-java-cmdline",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Get-CimInstance Win32_Process -Filter \"Name='java.exe'\" | Select-Object ProcessId,CommandLine | Format-List"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "inspect-java-cmdline-2",
+			"type": "shell",
+			"command": "wmic",
+			"args": [
+				"process",
+				"where",
+				"name='java.exe'",
+				"get",
+				"ProcessId,CommandLine",
+				"/FORMAT:LIST"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "kill-last-java",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/PID",
+				"16896"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "verify-clean",
+			"type": "shell",
+			"command": "tasklist",
+			"args": [
+				"/FI",
+				"IMAGENAME eq java.exe",
+				"/FO",
+				"TABLE"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "kill-reappeared-java",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/PID",
+				"22972"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "final-java-check",
+			"type": "shell",
+			"command": "tasklist",
+			"args": [
+				"/FI",
+				"IMAGENAME eq java.exe",
+				"/FO",
+				"TABLE"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "kill-final-java",
+			"type": "shell",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/PID",
+				"23840"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "confirm-no-java",
+			"type": "shell",
+			"command": "tasklist",
+			"args": [
+				"/FI",
+				"IMAGENAME eq java.exe",
+				"/FO",
+				"TABLE"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "check-customportal-file",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$p='D:\\warp_server\\minecraft_server\\servidor_rpg\\world\\data\\customportalapi.dat'; if(Test-Path $p){ Get-Item $p | Select-Object FullName,Length | Format-List } else { Write-Output 'missing' }"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "check-customportal-file-2",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"if exist D:\\warp_server\\minecraft_server\\servidor_rpg\\world\\data\\customportalapi.dat (echo present) else (echo missing)"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "py-compile-admin-panel",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"py_compile",
+				"minecraft_server/admin_panel.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "py-compile-admin-panel-2",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"py_compile",
+				"minecraft_server/admin_panel.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "py-compile-admin-panel-3",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"py_compile",
+				"minecraft_server/admin_panel.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "py-compile-admin-panel-4",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"-m",
+				"py_compile",
+				"minecraft_server/admin_panel.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "Check java processes",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Get-Process java -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,Path | Format-Table -AutoSize"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Kill java processes",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Get-Process java -ErrorAction SilentlyContinue | Stop-Process -Force"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Recheck java processes",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Get-Process java -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,Path | Format-Table -AutoSize"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
