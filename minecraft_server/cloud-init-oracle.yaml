@@ -1,0 +1,13 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+runcmd:
+  - [ bash, -c, 'set -x' ]
+  - [ bash, -c, 'echo "Starting Minecraft server provisioning on Oracle Cloud"' ]
+  # Install dependencies and clone repo
+  - [ bash, -c, 'apt-get update -y || dnf makecache || true' ]
+  - [ bash, -c, 'apt-get install -y git curl || dnf install -y git curl || true' ]
+  - [ bash, -c, 'cd /tmp && git clone --depth 1 --branch main https://github.com/Estebanporras10/Servidor_Minecraft_zerotier.git repo || true' ]
+  # Run provisioning script with ZeroTier and memory settings
+  - [ bash, -c, 'cd /tmp/repo && chmod +x minecraft_server/scripts/provision_vm.sh && sudo minecraft_server/scripts/provision_vm.sh https://github.com/Estebanporras10/Servidor_Minecraft_zerotier.git main 154a350c86a332b5 12G 16G || true' ]
+  - [ bash, -c, 'echo "Provisioning complete. Check: sudo systemctl status minecraft.service"' ]
